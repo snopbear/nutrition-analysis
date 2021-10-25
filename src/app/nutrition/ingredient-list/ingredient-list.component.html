@@ -1,0 +1,21 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>Qty</th>
+      <th>Unit</th>
+      <th>Food</th>
+      <th>Calories</th>
+      <th>Weight</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let row of ingredients">
+      <!-- <td>00{{ row | json }}</td> -->
+      <td>{{ row.quantity }}</td>
+      <td>{{ row.measure }}</td>
+      <td>{{ row.foodMatch }}</td>
+      <td>{{ row.nutrients.ENERC_KCAL.quantity | round }}</td>
+      <td>{{ row.weight | round }}</td>
+    </tr>
+  </tbody>
+</table>

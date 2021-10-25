@@ -1,0 +1,34 @@
+<div class="container analysis">
+  <div class="row">
+    <div class="col-sm-12 text-center pt-5">
+      <h1>Nutrition Analysis API Demo</h1>
+    </div>
+    <div class="col-sm-12 text-center pt-2 pb-5">
+      <p>
+        Enter an ingredient list list for what you are cooking, like
+        <span class="example">"1 cup rice, 10 oz chickpeas"</span>, etc.<br />Enter
+        each ingredient on a new line.
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-7">
+      <p>
+        <na-ingredient-input
+          (create)="saveNutrition($event)"
+          (clear)="clearNutrition($event)"
+        ></na-ingredient-input>
+      </p>
+      <p>
+        <na-ingredient-list
+          *ngIf="viewDetails"
+          [ingredients]="ingredients"
+        ></na-ingredient-list>
+      </p>
+    </div>
+    <div class="col-sm-5">
+      <na-nutrition-facts *ngIf="viewDetails" [fullRes]="fullRes">
+      </na-nutrition-facts>
+    </div>
+  </div>
+</div>
