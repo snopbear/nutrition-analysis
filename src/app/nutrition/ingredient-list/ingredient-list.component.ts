@@ -8,6 +8,5 @@ import { Component, Input, OnInit } from '@angular/core';
 export class IngredientListComponent implements OnInit {
   @Input() ingredients: any;
   constructor() {}
-
   ngOnInit() {}
 }

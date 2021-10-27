@@ -4,25 +4,28 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 import { IngredientInputComponent } from './ingredient-input.component';
-
+import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 describe('IngredientInputComponent', () => {
   let component: IngredientInputComponent;
   let fixture: ComponentFixture<IngredientInputComponent>;
+  let analyze: DebugElement;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ IngredientInputComponent ]
-    })
-    .compileComponents();
+      imports: [FormsModule, ReactiveFormsModule],
+      declarations: [IngredientInputComponent],
+    });
   }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(IngredientInputComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
+    analyze = fixture.debugElement.query(By.css('button'));
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('setting enabled analyze button to false if it empty', () => {
+    component.clearNutrition();
+    fixture.detectChanges();
+    expect(analyze.nativeElement.disabled).toBeTruthy();
   });
 });

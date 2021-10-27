@@ -4,6 +4,7 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 import { ShellComponent } from './shell.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('ShellComponent', () => {
   let component: ShellComponent;
@@ -11,9 +12,9 @@ describe('ShellComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ShellComponent ]
-    })
-    .compileComponents();
+      imports: [HttpClientTestingModule],
+      declarations: [ShellComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

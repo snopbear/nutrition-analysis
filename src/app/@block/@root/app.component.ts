@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LoaderService } from 'src/app/@core/@interceptors/loader/loader-service/loader-service.service';
 
 @Component({
   selector: 'na-root',
@@ -6,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'based-folder-structure';
+  title = 'Nutrition Anlysis';
+  constructor(public loaderService: LoaderService) {}
 }

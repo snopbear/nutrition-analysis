@@ -2,12 +2,20 @@ import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CoreRoutingModule } from './core-routing.module';
 import { throwIfAlreadyLoaded } from './@guard/check-import-module-guard';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { LoaderInterceptorService } from './@interceptors/loader/loader-interceptor/loader-interceptor.service';
 
 @NgModule({
   declarations: [],
   imports: [CommonModule, CoreRoutingModule],
   exports: [],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoaderInterceptorService,
+      multi: true,
+    },
+  ],
 })
 export class CoreModule {
   /*

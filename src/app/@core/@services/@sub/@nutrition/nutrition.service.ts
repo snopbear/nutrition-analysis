@@ -11,7 +11,7 @@ export class NutritionService {
   };
   constructor(private rootService: RootService) {}
 
-  add(model: any): Observable<any> {
+  fetch(model: any): Observable<any> {
     return this.rootService.postRoot(
       this.endPoints.postNutritionDetails,
       model

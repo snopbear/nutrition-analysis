@@ -8,19 +8,13 @@ import { Recipe } from '../../@core/index';
   styleUrls: ['./ingredient-input.component.scss'],
 })
 export class IngredientInputComponent implements OnInit {
+  //#region decleartion
   @Output() create = new EventEmitter<Recipe>();
   @Output() clear = new EventEmitter<boolean>();
-
   nutritionForm: FormGroup;
+  //#endregion
 
-  constructor(private fb: FormBuilder) {}
-
-  ngOnInit() {
-    this.nutritionForm = this.fb.group({
-      recipeName: ['1 cup rice,\n10 oz chickpeas', Validators.required],
-    });
-  }
-
+  //#region Actions
   saveNutrition() {
     if (this.nutritionForm.valid) {
       const nutrition = {
@@ -31,5 +25,14 @@ export class IngredientInputComponent implements OnInit {
   }
   clearNutrition() {
     this.clear.emit(false);
+  }
+  //#endregion
+
+  constructor(private fb: FormBuilder) {}
+
+  ngOnInit() {
+    this.nutritionForm = this.fb.group({
+      recipeName: ['1 cup rice,\n10 oz chickpeas', Validators.required],
+    });
   }
 }
